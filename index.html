@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTRA — Architectural Studio & Portfolio</title>
+
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Intro Splash Screen -->
+    <div id="intro-screen">
+        <canvas id="petals-canvas"></canvas>
+        <div class="intro-logo-container">
+            <svg class="intro-logo-svg" viewBox="0 0 400 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 50 110 C 150 130, 250 130, 350 110" stroke="#ffffff" stroke-width="1"/>
+                <path d="M 120 120 C 180 80, 220 70, 280 115" stroke="#ffffff" stroke-width="1"/>
+                <path d="M 300 30 A 20 20 0 1 0 320 60 A 15 15 0 1 1 300 30 Z" fill="#ffffff"/>
+                <path d="M 220 40 L 223 48 L 231 51 L 223 54 L 220 62 L 217 54 L 209 51 L 217 48 Z" fill="#ffffff"/>
+                <path d="M 255 60 L 257 65 L 262 67 L 257 69 L 255 74 L 253 69 L 248 67 L 253 65 Z" fill="#ffffff"/>
+                <path d="M 140 30 C 120 20, 110 40, 130 55 C 100 50, 110 80, 140 70 C 130 90, 160 90, 155 70 C 175 75, 175 45, 150 40 Z" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+                <path d="M 140 70 L 125 110" stroke="#ffffff" stroke-width="1.5"/>
+            </svg>
+            <h1 class="intro-title">ASTRA</h1>
+            <p class="intro-subtitle" id="intro-sub">Architectural & Spatial Design</p>
+            <button class="enter-btn" onclick="enterSite()" id="enter-btn-text">Исследовать / Enter</button>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <a href="#" class="brand-header">ASTRA</a>
+        <ul class="nav-links">
+            <li><a href="#projects-showcase" id="nav-3d">Проекты  которые я создаю</a></li>
+            <li><a href="#about" id="nav-about">Обо мне</a></li>
+            <li><a href="#portfolio" id="nav-portfolio">Портфолио</a></li>
+            <li><a href="#contact" id="nav-contact">Контакты</a></li>
+        </ul>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('RU')">RU</button>
+            <button class="lang-btn" onclick="switchLang('UZ')">UZ</button>
+            <button class="lang-btn" onclick="switchLang('EN')">EN</button>
+        </div>
+    </header>
+
+    <!-- Проекты, которые я создаю (10s Slider) -->
+    <section id="projects-showcase">
+        <h2 class="section-title" id="showcase-title">Проекты которые я создаю</h2>
+        <div class="slider-container">
+            <div class="slider-wrapper" id="slider-wrapper">
+                <!-- 20+ Rasmlar JavaScript orqali dinamik yuklanadi hamda 10s da almashib turadi -->
+            </div>
+            
+            <button class="slider-btn prev-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+            
+            <div class="slider-dots" id="slider-dots"></div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Image & Download Modal -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="modal-img" alt="Loyha rasmi">
+            <div class="modal-actions">
+                <p id="modal-download-text">Ushbu rasmni yuklab olasizmi?</p>
+                <div class="modal-buttons">
+                    <a id="modal-confirm-dl" href="" download class="modal-btn confirm-btn">Ha</a>
+                    <button class="modal-btn cancel-btn" onclick="closeModal()">Yo'q</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section (2 Pictures of ASTRA) -->
+    <section id="about">
+        <h2 class="section-title" id="title-about">Об Архитекторе</h2>
+        <div class="profile-container">
+            <div class="profile-gallery">
+                <div class="profile-img-card">
+                    <img src="./images/Astra Rasm 1.jpg" alt="Астрадымова Дарья - Портрет" class="profile-img">
+                </div>
+                <div class="profile-img-card secondary">
+                    <img src="./images/Astra Rasm 2.jpg" alt="Астрадымова Дарья - Рабочий процесс" class="profile-img">
+                </div>
+            </div>
+            <div class="profile-bio">
+                <h3 id="bio-name">Астрадымова Дарья</h3>
+                <div class="meta-info" id="bio-meta">21 год • Челябинск, Россия • Архитектор</div>
+                <p id="bio-text-1">
+                    Я учусь на архитектора и параллельно работаю в проектной сфере. Мне нравится визуальная эстетика, архитектура, фотография, одежда и создание контента.
+                </p>
+                <p id="bio-text-2">
+                    Люблю красивые детали, необычные сочетания и когда у вещей есть характер. По характеру достаточно самостоятельная, амбициозная и любопытная.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (Large Drawings & Detailed Sketches) -->
+    <section id="portfolio">
+        <h2 class="section-title" id="title-portfolio">Авторские Чертёжные Работы и Эскизы</h2>
+        <p class="section-subtitle" id="sub-portfolio">Масштабные детализированные чертежи, графические эскизы и планировочные решения</p>
+        
+        <div class="projects-grid">
+            <!-- Large Main Featured Drawing -->
+            <div class="project-card featured">
+                <div class="image-wrapper">
+                    <img src="./images/birinchi chizma.jpg" alt="Загородный Коттедж — Клаузура" class="project-img">
+                </div>
+                <div class="project-info">
+                    <span class="tag">Главный Проект</span>
+                    <h4 id="p1-title">Загородный Коттедж (Клаузура)</h4>
+                    <p id="p1-desc">Полный генеральный план, фасады, разрезы и поэтажная планировка с открытой террасой. Проект разработан с учетом современных нормативных требований и эстетики минимализма.</p>
+                </div>
+            </div>
+
+            <!-- Secondary Detailed Drawing -->
+            <div class="project-card">
+                <div class="image-wrapper">
+                    <img src="./images/Chizma qiziqishlar.jpg" alt="Графика и Ручная Подача" class="project-img">
+                </div>
+                <div class="project-info">
+                    <span class="tag">Графика</span>
+                    <h4 id="p2-title">Творческий Процесс & Ручная Подача</h4>
+                    <p id="p2-desc">Акварельная визуализация, светотеневая проработка элементов и ручные эскизные проработки пространственных композиций.</p>
+                </div>
+            </div>
+
+            <!-- Conceptual Design Card -->
+            <div class="project-card">
+                <div class="image-wrapper">
+                    <img src="./images/ASTRA Brend.jpg" alt="Архитектурные Детали" class="project-img">
+                </div>
+                <div class="project-info">
+                    <span class="tag">Детализация</span>
+                    <h4 id="p3-title">Архитектурный Детализм</h4>
+                    <p id="p3-desc">Проработка узлов конструкции, текстурирование материалов и поиск гармоничного взаимодействия света с формой зданий.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Icons for Phone, Telegram, Email) -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title" id="title-contact">Контакты</h2>
+        <p style="color: var(--text-muted); font-weight: 300;" id="contact-sub">Открыта к новым архитектурным проектам, консультациям и сотрудничеству</p>
+        
+        <div class="contact-details">
+            <!-- Phone Button -->
+            <a href="tel:+789000229202" class="contact-card">
+                <div class="icon-box">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                    <span class="label">Телефон</span>
+                    <span class="value">+7 (890) 002-29-202</span>
+                </div>
+            </a>
+
+            <!-- Telegram Button -->
+            <a href="https://t.me/astra_dary" target="_blank" class="contact-card">
+                <div class="icon-box telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </div>
+                <div class="contact-text">
+                    <span class="label">Telegram</span>
+                    <span class="value">@d_astradymova</span>
+                </div>
+            </a>
+
+            <!-- Email Button -->
+            <a href="mailto:d.astradymova@mail.ru" class="contact-card">
+                <div class="icon-box email">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                    <span class="label">E-Mail</span>
+                    <span class="value">d.astradymova@mail.ru</span>
+                </div>
+            </a>
+
+            <!-- Location Card -->
+            <div class="contact-card">
+                <div class="icon-box location">
+                    <i class="fas fa-location-dot"></i>
+                </div>
+                <div class="contact-text">
+                    <span class="label">Локация</span>
+                    <span class="value">Челябинск, Россия</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 ASTRA Studio. Architectural & Spatial Design.</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
